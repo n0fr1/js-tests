@@ -1,23 +1,20 @@
 import _ from 'lodash'
-import { reverseStr, getWithout, getGreater} from '../index.js';
+import { reverseStr, getGreater, getDaysInMonth} from '../index.js';
 
+//№1 test for reverse
 test('reverseStr', () => {
     expect(reverseStr('hello')).toEqual('olleh');
     expect(reverseStr('')).toEqual('');
 });
 
-test('getWithout', () => {
-    expect(getWithout([2, 1, 2, 3], 1, 2, 3)).toEqual([]);
-    expect(getWithout([2, 1, 2, 3], 1, 2)).toEqual([3]);
-    expect(getWithout([2, 1, 2, 3])).toEqual([2, 1, 2, 3]);
-});
-
+//№2 test for getGreater
 test('getGreater', () => {
     expect(getGreater(4, 3)).toBe(true);
     expect(getGreater(3, 3)).toBe(false);
     expect(getGreater(1, 3)).toBe(false);
 });
 
+//№3 test for object data. cloneDeep
 let data;
 let dataCopy;
 
@@ -44,5 +41,11 @@ test('set new property', () => {
   expect(data).toEqual(dataCopy);
 });
 
-
-
+//№4 test for getDaysInMonth
+test('testing function getDaysInMonth', () => {
+  expect(getDaysInMonth(4, 2023)).toBe(30);
+  expect(getDaysInMonth(2, 2023)).toBe(28);
+  expect(getDaysInMonth(2, 2024)).toBe(29);
+  expect(getDaysInMonth(5, 2023)).toBe(31);
+  expect(getDaysInMonth(15, 2023)).toBe(null);
+});
