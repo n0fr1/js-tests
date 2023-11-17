@@ -30,4 +30,18 @@ const getDaysInMonth = (month, year) => {
     return 31;
   };
   
-export { reverseStr, getGreater, getDaysInMonth };
+const fill = (coll, value, start = 0, end = coll.length) => {
+  if (start < 0 || end < 0) {
+    return null;
+  }
+  const callback = (item) => {
+    const ind = coll.indexOf(item);
+    if (ind >= start && ind < end) {
+      coll[ind] = value;
+    }
+  };
+  return coll.map(callback);
+};
+
+  
+export { reverseStr, getGreater, getDaysInMonth, fill };
