@@ -1,5 +1,7 @@
 import _ from 'lodash'
-import { reverseStr, getGreater, getDaysInMonth, fill } from '../index.js';
+import { reverseStr, getGreater, 
+  getDaysInMonth, fill,
+  getItemArr, getSliceArr } from '../index.js';
 
 //№1 test for reverse
 test('reverseStr', () => {
@@ -50,7 +52,7 @@ test('testing function getDaysInMonth', () => {
   expect(getDaysInMonth(15, 2023)).toBe(null);
 });
 
-//№5 test for fill    
+//№5 test for fill
 const array = [1, 2, 3, 4];
 let arrayCopy;
 
@@ -80,3 +82,21 @@ test('case start is minus number', () => {
 test('case end is minus number', () => {
   expect(fill(arrayCopy, '*', 1, -3)).toBe(null);
 }); 
+
+//№6 tests for get
+test('testing function get()', () => {
+  const actual1 = getItemArr([1, 2, 3], 1, 'a');
+  expect(actual1).toBe(2);
+
+  const actual2 = getItemArr([1, 2, 3], 4, 'a');
+  expect(actual2).toBe('a');
+
+  const actual3 = getItemArr([1, 2, 3], 4);
+  expect(actual3).toBeNull();
+});
+
+//№7 tests for slice
+test('testing fuction slice()', () => {
+  const actual1 = getSliceArr([1, 2, 3, 4, 5, 6], 1, 4);
+  expect(actual1).toEqual([2, 3, 4]);
+});

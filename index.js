@@ -43,5 +43,17 @@ const fill = (coll, value, start = 0, end = coll.length) => {
   return coll.map(callback);
 };
 
-  
-export { reverseStr, getGreater, getDaysInMonth, fill };
+const getItemArr = (arr, ind, defaultValue) => {
+  if (ind > arr.length && defaultValue === undefined) {
+    return null;
+  }
+  return _.get(arr, ind, defaultValue);
+};
+
+const getSliceArr = (arr, start = 0, end = arr.length) => {
+  return arr.slice(start, end);
+};
+
+export { reverseStr, getGreater, 
+  getDaysInMonth, fill, 
+  getItemArr, getSliceArr };
